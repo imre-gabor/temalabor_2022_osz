@@ -1,0 +1,1 @@
+# temalabor_2022_osz
