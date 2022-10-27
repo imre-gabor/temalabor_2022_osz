@@ -2,15 +2,20 @@ package webshop.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+import lombok.RequiredArgsConstructor;
 import webshop.model.Category;
 import webshop.model.Product;
 import webshop.repository.CategoryRepository;
 import webshop.repository.ProductRepository;
 
+@Service
+@RequiredArgsConstructor
 public class DiscountService {
 
-    private CategoryRepository categoryRepository;
-    private ProductRepository productRepository;
+    private final CategoryRepository categoryRepository;
+    private final ProductRepository productRepository;
     
     public void discountProductsByCategoryName(String catName, int percent) {
         
