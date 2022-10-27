@@ -3,6 +3,7 @@ package webshop.service;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import webshop.model.Category;
@@ -17,6 +18,7 @@ public class DiscountService {
     private final CategoryRepository categoryRepository;
     private final ProductRepository productRepository;
     
+    @Transactional
     public void discountProductsByCategoryName(String catName, int percent) {
         
         List<Category> foundCategories = categoryRepository.findByNameWithProducts(catName);
@@ -26,11 +28,8 @@ public class DiscountService {
                 cat -> cat.getProducts()
                 .forEach(p -> {
                     setDiscountedPrice(p, percent);
-                    productRepository.save(p);
-                }));
-        
-        foundCategories
-        .forEach(System.out::println);
+                    //productRepository.save(p); --> not needed because of Transactional
+                }));        
     }
 
     private void setDiscountedPrice(Product product, int percent) {
