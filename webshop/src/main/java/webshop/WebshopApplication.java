@@ -24,9 +24,9 @@ public class WebshopApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        //initDbService.initSampleData();
-        discountService.discountProductsByCategoryName("cat1", 10);
-        productRepository.findAll().forEach(p -> System.out.format("%s:%f%n", p.getName(), p.getPrice()));
+//        initDbService.initSampleData();
+//        discountService.discountProductsByCategoryName("cat1", 10);
+//        productRepository.findAll().forEach(p -> System.out.format("%s:%f%n", p.getName(), p.getPrice()));
     }
     
     
