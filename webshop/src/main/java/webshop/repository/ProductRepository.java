@@ -1,14 +1,9 @@
 package webshop.repository;
 
-import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import webshop.model.Product;
 
-public interface ProductRepository {
-
-    Optional<Product> findById(Integer id);
-    
-    Product save(Product product);
-    
-    //... további CRUD műveletek
+public interface ProductRepository extends JpaRepository<Product, Integer>{
+       
 }
