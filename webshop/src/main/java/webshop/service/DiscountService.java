@@ -19,7 +19,7 @@ public class DiscountService {
     
     public void discountProductsByCategoryName(String catName, int percent) {
         
-        List<Category> foundCategories = categoryRepository.findyByName(catName);
+        List<Category> foundCategories = categoryRepository.findByNameWithProducts(catName);
         
         foundCategories
             .forEach(
